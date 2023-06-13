@@ -15,7 +15,7 @@ COPY app.py .
 #COPY models.py .
 
 # Copy the model files
-COPY ML MODEL/
+COPY ML /app/ML
 
 # Set environment variables if necessary
 ENV MODEL_DIR=MLMODEL/
