@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app.py .
 
 # Copy the model files
-COPY ml-model ./ml-model
+COPY ml-model /app/ml-model
 
 # Set environment variables if necessary
 ENV MODEL_DIR=ml-model/MLMODEL/
