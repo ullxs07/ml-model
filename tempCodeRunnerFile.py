@@ -1,0 +1,1 @@
+disease = request.form['disease']

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .upload-form {
+      text-align: center;
+    }
+
+    .upload-input {
+      display: none;
+    }
+
+    .upload-label {
+      display: inline-block;
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .upload-label:hover {
+      background-color: #45a049;
+    }
+
+    .form-actions {
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .form-actions input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-actions input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Application Form</h1>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+      
+   
+
+    <form class="upload-form" action="/predict" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="photo">Upload Photo</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        
+        <select id="disease-select" name="disease" accept="disease/*">
+          <option value="ARMD">ARMD</option>
+          <option value="BRVO">BRVO</option>
+          <option value="CRS">CRS</option>
+          <option value="CSR">CSR</option>
+          <option value="CRVO">CRVO</option>
+          <option value="DR">DR</option>
+          <option value="DN">DN</option>
+          <option value="LS">LS</option>
+          <option value="MH">MH</option>
+          <option value="MYA">MYA</option>
+          <option value="ODE">ODE</option>
+          <option value="ODP">ODP</option>
+          <option value="RPEC">RPEC</option>
+          <option value="RS">RS</option>
+          <option value="TSLN">TSLN</option>
+          <option value="ODC">ODC</option>
+          <!-- Add options for other diseases -->
+      </select>
+        
+      </div>
+      <div class="form-actions">
+        <input type="submit" value="SUBMIT">
+      </div>
+    </form>
+  </div>
+</body>
+</HTMl>

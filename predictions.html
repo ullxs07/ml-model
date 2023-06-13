@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eye Disease Prediction</title>
+</head>
+<body>
+    <h1>Eye Disease Prediction Results</h1>
+    <p>Prediction:</p>
+    <ul>
+        {% for result in predictions %}
+            <li>{{ result }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

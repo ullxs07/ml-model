@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eye Disease Prediction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Eye Disease Prediction</h1>
+    <form id="upload-form" action='/predict' enctype="multipart/form-data">
+        <input type="file" id="image-upload" name="image" accept="image/*">
+        <select id="disease-select">
+            <option value="dr">Disease 1</option>
+            <option value="mh">Disease 2</option>
+            <!-- Add options for other diseases -->
+        </select>
+        <button type="submit">Predict</button>
+    </form>
+    <div id="prediction-result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#upload-form').submit(function(e) {
+                e.preventDefault();
+                
+                var formData = new FormData(this);
+                formData.append('disease', $('#disease-select').val());
+
+                $.ajax({
+                    url: '/predict',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // Handle the prediction response
+                        displayPrediction(response);
+                    },
+                    error: function(error) {
+                        // Handle any errors
+                        console.error(error);
+                    }
+                });
+            });
+        });
+
+        function displayPrediction(response) {
+            var predictions = response.predictions;
+            var resultDiv = $('#prediction-result');
+            resultDiv.empty();
+
+            for (var i = 0; i < predictions.length; i++) {
+                var disease = 'Disease ' + (i + 1);
+                var probability = predictions[i];
+
+                var predictionText = disease + ': ' + probability.toFixed(2);
+                resultDiv.append('<p>' + predictionText + '</p>');
+            }
+        }
+    </script>
+</body>
+</html>
