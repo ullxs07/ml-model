@@ -1,6 +1,7 @@
-pip install --upgrade pip
 Flask==2.2.2
-numpy==1.22.1
-pandas==1.5.3
+numpy==1.22.3
+pandas==1.5.2
 scikit_learn==1.2.2
 gunicorn
+tensorflow==2.9.1
+keras==2.9.0
