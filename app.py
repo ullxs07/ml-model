@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from flask import Flask, jsonify, request, render_template
-from preprocessing import preprocess_image
+#from preprocessing import preprocess_image
 from werkzeug.utils import secure_filename
 
 # Load the trained model
