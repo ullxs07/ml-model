@@ -94,7 +94,29 @@ def predict():
     #resized_image = cv2.resize(rgb_image, (124, 124), interpolation=cv2.INTER_NEAREST)
 
     # Preprocess the image
+import cv2
+import numpy as np
 
+def preprocess_image(image_path):
+    # Read the image
+    image = cv2.imread(image_path)
+    
+    # Resize the image to (124, 124)
+    resized_image = cv2.resize(image, (150, 150))
+    
+    # Convert the image to grayscale
+    gray_image = cv2.cvtColor(resized_image, cv2.COLOR_BGR2GRAY)
+    
+    # Apply CLAHE (Contrast Limited Adaptive Histogram Equalization)
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    clahe_image = clahe.apply(gray_image)
+    
+    # Expand dimensions to match (1, 124, 124, 3)
+    preprocessed_image = np.expand_dims(clahe_image, axis=-1)
+    preprocessed_image = np.repeat(preprocessed_image, 3, axis=-1)
+    preprocessed_image = np.expand_dims(preprocessed_image, axis=0)
+    
+    return preprocessed_image
     
     processed_image = preprocess_image(image_path)
 
