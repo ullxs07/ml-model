@@ -3,4 +3,5 @@ numpy==1.22.3
 pandas==1.5.2
 tensorflow==2.9.1
 keras==2.9.0
+cv2==4.6.0
 gunicorn
