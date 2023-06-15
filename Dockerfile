@@ -14,7 +14,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the ML models
-COPY ML\ MODEL/*.h5 ./ML\ MODEL/
+COPY "ml-model" /app/"ml-model"
 
 # Copy the Flask API code
 COPY app.py .
