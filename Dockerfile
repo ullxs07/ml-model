@@ -2,7 +2,7 @@
 FROM python:3.9
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
-RUN python -m pip install --upgrade pip
+RUN pip install --no-cache-dir --upgrade pip 
 
 # Set the working directory
 WORKDIR /app
@@ -11,8 +11,8 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the required dependencies
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the ML models
 COPY . /app
