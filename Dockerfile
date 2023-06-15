@@ -10,13 +10,6 @@ WORKDIR /app
 # Copy the requirements file
 COPY requirements.txt .
 
-RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    libsm6 \
-    libxrender1 \
-    libxext6
-
 # Install the required dependencies
 
 RUN pip install --no-cache-dir -r requirements.txt
